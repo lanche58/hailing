@@ -29,10 +29,11 @@
         </ul>
     </div>
     
-    <div class="menu-handler">
+    <div class="menu-handler active">
         <span class="burger burger-1 mtrans"></span>
         <span class="burger burger-2 mtrans"></span>
         <span class="burger burger-3 mtrans"></span>
+        <img src="images/menu.png" class="menuTi" alt="">
     </div>
     <div class="menuBox">
         <dl class="navMobile">
@@ -105,9 +106,16 @@
         </div>
     </div>
     
-    <div class="in2 fixbg" style="background-image: url(img/indu_fixbg.jpg);">
-        <div class="pw">
-            <ul class="indu-nav fib">
+    <div class="in2">
+        <div class="induv-i">
+            <img src="images/inv_bg.jpg" alt="">
+            <div class="item pic2"><img src="img/iv_i4.jpg" alt=""><span class="cover"></span></div>
+            <div class="item pic2"><img src="img/iv_i5.jpg" alt=""><span class="cover"></span></div>
+            <div class="item pic2"><img src="img/iv_i6.jpg" alt=""><span class="cover"></span></div>
+            <div class="item pic2"><img src="img/iv_i7.jpg" alt=""><span class="cover"></span></div>
+        </div>
+        <div class="b">
+            <ul class="indu-nav pw fib">
                 <li class="ib"><a href="indu4-a.html">
                     <div class="pa">
                         <p class="icon iconfont icon-maoyijinchukoulingshoupifa"></p>
@@ -151,7 +159,7 @@
 				<a href="#" class="icon iconfont icon-qq"></a>
 			</div>
 			<div class="l">
-				<span><a href="cta.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="map.html">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="secret.html">隐私安全</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="cop.html">版权声明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>Copyright&nbsp;©&nbsp;2016&nbsp;&nbsp;海领集团&nbsp;版权所有&nbsp;&nbsp;&nbsp;<a href="#">网站设计：赛门仕博</a><a href="link.html" class="link">友情链接</a></span>
+				<span><a href="cta.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="map.html">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="secret.html">隐私安全</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="cop.html">版权声明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>Copyright&nbsp;©&nbsp;2016&nbsp;&nbsp;海领集团&nbsp;版权所有&nbsp;&nbsp;&nbsp;海领齐康广告有限公司<a href="link.html" class="link">友情链接</a></span>
 			</div>
 		</div>
 	</div>
@@ -159,5 +167,24 @@
 <script src="js/plugin.js"></script>
 
 <script src="js/page.js"></script>
+<script>
+    $(function(){
+        $('.induv-i .item').each(function(i, e) {
+            $(this).css({'zIndex': $('.induv-i .item').size() - i})
+        });
+        changeInduImg(0);
+        function changeInduImg(curr) {
+            $('.induv-i .item').stop(true, true).fadeOut(1500).eq(curr).stop(true, true).fadeIn(1500);
+        }
+        var oindex = 0;
+        $('.indu-nav li').mouseenter(function() {
+            if (isMobile) { return; }
+            var index = $(this).index();
+            if (index === oindex) { return; }
+            changeInduImg(index);
+            oindex = index;
+        });
+    })
+</script>
 </body>
 </html>
